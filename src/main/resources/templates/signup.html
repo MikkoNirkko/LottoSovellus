@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<link type="text/css" rel="stylesheet" href="css/styles.css" th:href="@{css/styles.css}" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	
+	</head>
+	
+	<body>
+	<div class="virhe" th:if="${param.error}">
+Käyttäjätunnus tai salasana ovat väärät.
+</div>
+	<h1>Uusi käyttäjä</h1>
+	<div class="col-md-4 laatikko" >
+		<form th:object="${signupform}" th:action="@{../saveuser}" action="#" method="post">
+			<div>
+				<label> Käyttäjänimi (5-30 merkkiä) :<input type="text" th:field="*{username}" class="form-control"/></label>
+				<p class="virhe" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
+			</div>
+			<div>
+				<label> Salasana (7-30 merkkiä):<input type="password" th:field="*{password}" class="form-control"/></label>
+				<p class="virhe" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
+			</div>
+			<div>
+				<label> Anna salasana uudestaan: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
+				<p class="virhe" th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
+			</div>
+			
+			<input type="submit" class="btn btn-success" value="Lisää Käyttäjä"></input>		
+		</form>
+	</div>
+	</body>

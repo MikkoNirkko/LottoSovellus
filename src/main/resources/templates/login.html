@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<link type="text/css" rel="stylesheet" href="css/styles.css" th:href="@{css/styles.css}" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	
+	</head>
+	<body>
+<div class="virhe" th:if="${param.error}">
+Käyttäjätunnus tai salasana on väärä.
+</div>
+<div class="laatikko keskitys">
+<h1>Lotto - Kirjaudu</h1>
+<form th:action="@{/login}" method="post">
+<div><label> Käyttäjänimi : <input type="text" name="username"/> </label></div>
+<div><label> Salasana: <input type="password" name="password"/> </label></div>
+<div class="pelaanappi"><input type="submit" value="Kirjaudu"/></div>
+</form>
+
+<br/>
+<a class="tulos" th:href="@{/signup}">Uusi käyttäjä</a>
+</div>
+<p>Tämä on lottosovellus, jossa pelataan yhdellä satunnaisella lottorivillä toista satunnaista lottoriviä vastaan.</p>
+<p>Lopputulos tallentuu tietokantaan.</p><br/>
+<p>Mikko Nirkko 1503030, 2018</p>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+.keskitys{
+	text-align:center;
+}
+.laatikko{
+	background-color:lightblue;
+}
+.virhe{
+	color:red;
+}
+.table-striped{
+	max-width: 1000px;
+}
+.tulos{
+	font-size: 25px;
+	color:green;
+}
+.leveys{
+	max-width:1300px;
+	margin:auto;
+}
+.tulos2{
+	font-size: 33px;
+	color:blue;
+}
+.otsikko{
+	font-size:50px;
+}
+
+.tulos2{
+	font-size: 45px;
+	color:blue;
+}
+.pelaanappi{
+	font-size:30px;
+}

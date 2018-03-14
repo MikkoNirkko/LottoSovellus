@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<link type="text/css" rel="stylesheet" href="css/styles.css" th:href="@{css/styles.css}" />
+<head>
+<title>Lotto</title>
+</head>
+
+<body>
+<div class="keskitys">
+	<div class="otsikko">Tulokset</div>
+	
+	<h2>Voittava rivi oli: </h2><p class="tulos" th:text="${rivi1}"></p>
+	<h2>Sinun rivisi oli: </h2><p class="tulos" th:text="${rivi2}"></p>
+		<h3>Samojen numeroiden määrä: </h3><p class="tulos2" th:text="${oikein}"></p>
+		<p class="tulos" th:text="${samat}"></p>
+		<br/>
+		<a class="otsikko" href="main">Takaisin alkuun</a>
+		</div>
+</body>
+</html>

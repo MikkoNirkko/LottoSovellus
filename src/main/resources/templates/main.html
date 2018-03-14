@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<link type="text/css" rel="stylesheet" href="css/styles.css" th:href="@{css/styles.css}" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+
+<head>
+<title>Lotto</title>
+</head>
+
+<body>
+	
+<div class="keskitys">
+<img th:src="@{/images/logo.jpg}" /><br>
+	<form th:action="@{/newrow}" method="post">
+<input class="pelaanappi" type="submit" value="Pelaa"/>
+</form>
+	</div>
+	<div class="keskitys leveys">
+	<br/>
+	<br/>
+	<h3 class="keskitys">Aiemmat Tulokset:</h3>
+	<table class="table table-striped keskitys" >
+	<tr class="keskitys">
+	<th class="keskitys" style="width: 30%">Pelaajan nimi</th>
+	<th class="keskitys" style="width: 30%">Pelaajan rivi</th>
+	<th class="keskitys" style="width: 30%">Osumia</th>
+	<th sec:authorize="hasAuthority('ADMIN')" class="keskitys" style="width: 30%"></th>
+	<th sec:authorize="hasAuthority('ADMIN')" class="keskitys" style="width: 30%"></th>
+	</tr>
+	<tr th:each="lottorivi: ${rows}">
+	<td style="font-size:25px" th:text="${lottorivi.playname}">Name</td>
+	<td class = "tulos" th:text="${lottorivi.row}">ID</td>
+	<td class="tulos" th:text="${lottorivi.wins}">Name</td>
+	<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${lottorivi.id})}">Muuta</a></td>
+	<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${lottorivi.id})}">Poista</a></td>
+	</tr>
+</table>
+</div>
+<br>
+<div class="keskitys">
+<h3 th:inline="text">Olet kirjautunut sisään nimellä: [[${#httpServletRequest.remoteUser}]]</h3>
+<form th:action="@{/logout}" method="post">
+<input type="submit" value="Kirjaudu ulos"/>
+</form>
+<a sec:authorize="hasAuthority('ADMIN')" href="admin">lisäasetukset</a>
+</div>
+</body>
+</html>

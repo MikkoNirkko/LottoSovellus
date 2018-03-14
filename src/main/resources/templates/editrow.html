@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<link type="text/css" rel="stylesheet" href="css/styles.css" th:href="@{css/styles.css}" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+
+<head>
+<title>Lotto</title>
+</head>
+
+<body>
+
+
+<form th:object="${lottorivi}" th:action="@{../tallenna}" action="#" method="post" >
+<input type="hidden" th:field="*{id}"/>
+<label for="playname">Pelaajan nimi: </label>
+<input type="text"  id="playname" th:field="*{playname}"/>
+<br/>
+<label for="row">Pelattu rivi: </label>
+<input type="text" id="row" th:field="*{row}"/>
+<br/>
+<label for="wins">Montako oikein: </label>
+<input type="text" id="wins" th:field="*{wins}"/>
+<br/>
+<input type="submit" value="Save"></input>
+</form>
+
+</body>
+</html>

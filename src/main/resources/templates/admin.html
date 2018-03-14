@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<link type="text/css" rel="stylesheet" href="css/styles.css" th:href="@{css/styles.css}" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+
+
+<head>
+<title>Lotto</title>
+</head>
+<body>
+<h1>Lisäasetukset</h1>
+<br/>
+<h3>Poista käyttäjiä</h3>
+	<table>
+	<tr>
+	<th>Käyttäjänimi</th>
+	<th></th>
+	</tr>
+	<tr th:each="user: ${users}">
+	<td th:text="${user.username}">Username</td>
+	<td><a th:href="@{/deleteuser/{id}(id=${user.id})}">Poista</a></td>
+	</tr>
+</table>
+
+<br/>
+<a href="reset">Puhdista tietokanta alkutilanteeseen</a>
+
+<br/>
+<a class="otsikko" href="../main">Takaisin</a>
+</body>
+</html>
